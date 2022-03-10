@@ -21,7 +21,7 @@ Window {
 
         Image {
             id: splashImage
-            source: "../img/sg-splash.png"
+            source: "../img/png/sg-splash.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked: Qt.quit()
