@@ -31,6 +31,10 @@ qt_add_qml_module(solana_gui
         QML_FILES
         res/ui/root.qml
         res/ui/Splash.qml
+        res/ui/component/SGMenuLabel.qml
+        res/ui/component/SGMenuBG.qml
+        res/ui/component/SGMenu.qml
+        res/ui/component/SGMenuItem.qml
         RESOURCES
         res/img/png/sg-splash.png
         res/img/svg/winclose.svg

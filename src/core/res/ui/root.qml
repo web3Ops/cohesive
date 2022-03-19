@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import "component"
+
 QtObject {
     id: root
 
@@ -47,99 +49,109 @@ QtObject {
                         Row {
                             anchors.fill: parent
                             spacing: 13
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelFile
                                 text: qsTr("File")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuFile.open()
+                                }
+                                SGMenu {
+                                    id: idMenuFile
+                                }
                             }
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelEdit
                                 text: qsTr("Edit")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuEdit.open()
+                                }
+                                SGMenu {
+                                    id: idMenuEdit
+                                }
                             }
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelView
                                 text: qsTr("View")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuView.open()
+                                }
+                                SGMenu {
+                                    id: idMenuView
+                                }
                             }
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelNavigate
                                 text: qsTr("Navigate")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuNavigate.open()
+                                }
+                                SGMenu {
+                                    id: idMenuNavigate
+                                }
                             }
-
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelBuild
                                 text: qsTr("Build")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuBuild.open()
+                                }
+                                SGMenu {
+                                    id: idMenuBuild
+                                }
                             }
-
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelRun
                                 text: qsTr("Run")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuRun.open()
+                                }
+                                SGMenu {
+                                    id: idMenuRun
+                                }
                             }
-
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelTools
                                 text: qsTr("Tools")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    idMenuTools.open()
+                                }
+                                SGMenu {
+                                    id: idMenuTools
+                                }
                             }
-
-                            Text {
+                            SGMenuLabel {
+                                id: idLabelWindow
                                 text: qsTr("Window")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
+                                onClicked: {
+                                    idMenuWindow.open()
+                                }
 
-                            Text {
-                                id: help
+                                SGMenu {
+                                    id: idMenuWindow
+                                }
+                            }
+                            SGMenuLabel {
+                                id: idLabelHelp
                                 text: qsTr("Help")
-                                color: "white"
-                                anchors.verticalCenter: parent.verticalCenter
-                                MouseArea {
-                                    anchors.fill: parent
-                                    acceptedButtons: Qt.LeftButton | Qt.RightButton
-                                    onClicked: {
-                                        menuHelp.open()
+                                onClicked: {
+                                    idMenuHelp.open()
+                                }
+                                SGMenu {
+                                    id: idMenuHelp
+                                    SGMenuItem {
+                                        id: cfu
+                                        text: qsTr("Check for Updates")
                                     }
-                                    Menu {
-                                        id: menuHelp
-                                        y: help.height
-                                        background: Rectangle {
-                                            implicitWidth: 200
-                                            implicitHeight: 200
-                                            color: menuBar.color
-                                            border.color: "#353637"
-                                        }
-                                        MenuItem {
-                                            id: cfu
-                                            text: qsTr("Check for Updates")
-                                            contentItem: Text {
-                                                text: cfu.text
-                                                font: cfu.font
-                                                opacity: enabled ? 1.0 : 0.3
-                                                color: cfu.down ? "#17a81a" : "white"
-                                                elide: Text.ElideRight
-                                                anchors.leftMargin: 10
-                                            }
-                                        }
-                                        MenuItem {
-                                            id: about
-                                            text: qsTr("About")
-                                            contentItem: Text {
-                                                text: about.text
-                                                font: about.font
-                                                opacity: enabled ? 1.0 : 0.3
-                                                color: about.down ? "#17a81a" : "white"
-                                                elide: Text.ElideRight
-                                            }
-                                        }
+
+                                    SGMenuItem {
+                                        id: about
+                                        text: qsTr("About")
                                     }
                                 }
                             }
                         }
                     }
+
                     Text {
                         id: cluster
                         text: qsTr("localhost - Solana GUI")
