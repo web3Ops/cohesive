@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import "component"
+import "window"
 
 QtObject {
     id: root
@@ -120,6 +121,36 @@ QtObject {
                                 }
                             }
                             SGMenuLabel {
+                                id: idLabelWallet
+                                text: qsTr("Wallet")
+                                onClicked: {
+                                    idMenuWallet.open()
+                                }
+                                SGMenu {
+                                    id: idMenuWallet
+                                    SGMenuItem {
+                                        id: idConfigWallet
+                                        text: qsTr("Configure")
+                                    }
+                                    SGMenuItem {
+                                        id: idCreateWallet
+                                        text: qsTr("Create")
+                                    }
+                                    SGMenuItem {
+                                        id: idViewWallet
+                                        text: qsTr("View")
+                                    }
+                                    SGMenuItem {
+                                        id: idRestoreWallet
+                                        text: qsTr("Restore")
+                                    }
+                                    SGMenuItem {
+                                        id: idVerifyWallet
+                                        text: qsTr("Verify")
+                                    }
+                                }
+                            }
+                            SGMenuLabel {
                                 id: idLabelWindow
                                 text: qsTr("Window")
                                 onClicked: {
@@ -139,12 +170,12 @@ QtObject {
                                 SGMenu {
                                     id: idMenuHelp
                                     SGMenuItem {
-                                        id: cfu
+                                        id: idCFU
                                         text: qsTr("Check for Updates")
                                     }
 
                                     SGMenuItem {
-                                        id: about
+                                        id: idAbout
                                         text: qsTr("About")
                                     }
                                 }
@@ -154,7 +185,7 @@ QtObject {
 
                     Text {
                         id: cluster
-                        text: qsTr("localhost - Solana GUI")
+                        text: qsTr("Cluster: localhost - Solana GUI")
                         color: "white"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -176,7 +207,8 @@ QtObject {
                                     implicitWidth: 200
                                     implicitHeight: 200
                                     color: menuBar.color
-                                    border.color: "#353637"
+                                    border.width: 2
+                                    border.color: Qt.lighter(color)
                                 }
                                 padding: 10
                                 ColumnLayout {

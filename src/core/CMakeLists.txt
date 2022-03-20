@@ -30,7 +30,7 @@ qt_add_qml_module(solana_gui
         VERSION 1.0
         QML_FILES
         res/ui/root.qml
-        res/ui/Splash.qml
+        res/ui/window/Splash.qml
         res/ui/component/SGMenuLabel.qml
         res/ui/component/SGMenuBG.qml
         res/ui/component/SGMenu.qml
