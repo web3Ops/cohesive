@@ -15,12 +15,29 @@ QtObject {
         title: qsTr("Solana GUI")
         property int preX
         property int preY
+
         Rectangle {
             width: parent.width
             height: parent.height
+
             Column {
+                id: docArea
                 width: parent.width
                 height: parent.height
+
+                Rectangle {
+                    width: parent.width
+                    height: parent.height
+                    color: "black"
+                }
+            }
+
+            Column {
+                id: topBar
+                width: parent.width
+                height: 52
+                anchors.top: parent.top
+
                 Rectangle {
                     id: menuBar
                     width: parent.width
@@ -294,22 +311,52 @@ QtObject {
                         }
                     }
                 }
-
-                Rectangle {
-                    color: "#EDE9E8"
-                    width: parent.width
-                    height: 1
-                }
+                SGHr {}
                 Rectangle {
                     width: parent.width
                     height: 25
                     color: "#2d2d2d"
                 }
+                SGHr {
+                    color: "black"
+                }
+            }
 
-                Rectangle {
-                    color: "#EDE9E8"
+            Rectangle {
+                width: 20
+                height: parent.height - 52
+                color: "#2d2d2d"
+                anchors.right: parent.right
+                anchors.top: topBar.bottom
+            }
+
+            Rectangle {
+                width: 20
+                height: parent.height - 52
+                color: "#2d2d2d"
+                anchors.left: parent.left
+                anchors.top: topBar.bottom
+            }
+
+            Rectangle {
+                width: parent.width
+                height: 41
+                color: "#2d2d2d"
+                anchors.bottom: parent.bottom
+                Column {
                     width: parent.width
-                    height: 1
+                    height: parent.height
+                    Rectangle {
+                        width: parent.width
+                        height: 20
+                        color: "#2d2d2d"
+                    }
+                    SGHr {}
+                    Rectangle {
+                        width: parent.width
+                        height: 20
+                        color: "#2d2d2d"
+                    }
                 }
             }
 
