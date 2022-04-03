@@ -4,6 +4,7 @@ import QtQuick.Layouts
 
 import "component"
 import "window"
+import module.help
 
 QtObject {
     id: root
@@ -347,9 +348,36 @@ QtObject {
                     width: parent.width
                     height: parent.height
                     Rectangle {
+                        id: idBToolBar
                         width: parent.width
                         height: 20
                         color: "#2d2d2d"
+                        property variant bToolArray: ["TODO", "Debug", "Messages", "Terminal"]
+                        Row {
+                            width: parent.width
+                            height: parent.height
+                            spacing: 5
+                            Repeater {
+                                model: 5
+                                delegate: Rectangle {
+                                    width: idToolLabel.width
+                                    height: parent.height
+                                    required property int index
+                                    color: "white"
+                                    Row {
+                                        Text {
+                                            id: idToolLabel
+                                            text: qsTr("xyz")
+                                            color: "black"
+                                            anchors.verticalCenter: parent.verticalCenter
+                                        }
+                                    }
+
+                                }
+                            }
+
+
+                        }
                     }
                     SGHr {}
                     Rectangle {
