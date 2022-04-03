@@ -1,3 +1,6 @@
+#ifndef SOLANA_GUI_FILE_H
+#define SOLANA_GUI_FILE_H
+
 #include <QObject>
 #include <QtQml/qqmlregistration.h>
 
@@ -8,3 +11,5 @@ Q_OBJECT
 public:
     Q_INVOKABLE int about() const;
 };
+
+#endif //SOLANA_GUI_FILE_H
