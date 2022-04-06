@@ -1,7 +1,9 @@
 add_subdirectory(module)
+add_subdirectory(test)
 
-# add deps
-find_package(Qt6 6.2 COMPONENTS Core Gui Quick Qml REQUIRED)
+if (SG_BUILD_QML_PROJECT)
+    add_subdirectory(res)
+endif ()
 
 # Add the executable
 qt_add_executable(solana_gui)

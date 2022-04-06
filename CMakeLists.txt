@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(solana_gui)
-
+project(solana_gui LANGUAGES CXX)
 set(solana_gui_VERSION_MAJOR 0)
 set(solana_gui_VERSION_MINOR 1)
 set(solana_gui_VERSION_PATCH 0)
@@ -10,8 +9,8 @@ set(solana_gui_VERSION
 
 set(CMAKE_CXX_STANDARD 17)
 
-# include specific modules
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(option)
 
 set(CMAKE_PREFIX_PATH $ENV{QTDIR})
 set(CMAKE_AUTOMOC  ON)
@@ -19,6 +18,10 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+find_package(Qt6 6.2 COMPONENTS Core Gui Quick Qml Test REQUIRED)
+
+enable_testing(${SG_ENABLE_TESTING})
 
 add_subdirectory(src)
 
@@ -33,7 +36,7 @@ message("  Prefix:           ${CMAKE_INSTALL_PREFIX}")
 message("  Path BIN:         ${BIN_DESTINATION}")
 message("  Path LIB:         ${LIB_DESTINATION}")
 message("  Path INCLUDE:     ${INCLUDE_DESTINATION}")
-message("  Build testing:    ${BUILD_TEST}")
+message("  Build testing:    ${SG_ENABLE_TESTING}")
 message("  Build units:      ${BUILD_TESTING}")
 message("  Architecture:     ${CMAKE_SYSTEM_PROCESSOR}")
 message("  System:           ${CMAKE_SYSTEM_NAME}")

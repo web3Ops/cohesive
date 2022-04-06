@@ -1,4 +1,3 @@
-find_package(Qt6 6.2 COMPONENTS Quick Qml REQUIRED)
 add_subdirectory(file)
 add_subdirectory(edit)
 add_subdirectory(view)
