@@ -1,3 +1,4 @@
+# support qt-creator
 file(GLOB_RECURSE SG_RES_FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/*png"
         "${CMAKE_CURRENT_SOURCE_DIR}/*svg"

@@ -44,4 +44,5 @@ qt_add_qml_module(solana_gui
         res/img/svg/winclose.svg
         res/img/svg/winminimize.svg
         res/img/svg/winresize.svg
+        ${SG_SOLX_FILE}
         )

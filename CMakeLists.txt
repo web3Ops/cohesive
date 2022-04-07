@@ -23,6 +23,7 @@ find_package(Qt6 6.2 COMPONENTS Core Gui Quick Qml Test REQUIRED)
 
 enable_testing(${SG_ENABLE_TESTING})
 
+add_subdirectory(solx)
 add_subdirectory(src)
 
 ################################
