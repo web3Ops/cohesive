@@ -4,6 +4,8 @@ import QtQuick.Layouts
 
 import "component"
 import "window"
+import "section"
+
 import module.help
 
 QtObject {
@@ -21,16 +23,8 @@ QtObject {
             width: parent.width
             height: parent.height
 
-            Column {
-                id: docArea
-                width: parent.width
-                height: parent.height
-
-                Rectangle {
-                    width: parent.width
-                    height: parent.height
-                    color: "black"
-                }
+            SGDocArea {
+                anchors.fill: parent
             }
 
             Column {
@@ -372,11 +366,8 @@ QtObject {
                                             anchors.verticalCenter: parent.verticalCenter
                                         }
                                     }
-
                                 }
                             }
-
-
                         }
                     }
                     SGHr {}

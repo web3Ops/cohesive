@@ -39,6 +39,10 @@ qt_add_qml_module(solana_gui
         res/ui/component/SGMenu.qml
         res/ui/component/SGMenuItem.qml
         res/ui/component/SGHr.qml
+        res/ui/section/SGExplorer.qml
+        res/ui/section/SGWorkspace.qml
+        res/ui/section/SGDocArea.qml
+
         RESOURCES
         res/img/png/sg-splash.png
         res/img/svg/winclose.svg
