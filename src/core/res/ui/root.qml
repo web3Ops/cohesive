@@ -4,8 +4,8 @@ import QtQuick.Layouts
 import "component"
 import "window"
 import "section"
+import "popup"
 import module.help
-
 
 QtObject {
     id: root
@@ -108,13 +108,14 @@ QtObject {
                                 text: qsTr("Window")
                             }
                             SGMenuBarItem {
-
                                 text: qsTr("Help")
+                                SGMenuItem {
+                                    text: qsTr("Documentation")
+                                }
                                 SGMenuItem {
                                     id: idCFU
                                     text: qsTr("Check for Updates")
                                 }
-
                                 SGMenuItem {
                                     id: idAbout
                                     text: qsTr("About")
@@ -125,42 +126,12 @@ QtObject {
 
                     Text {
                         id: cluster
-                        text: qsTr("Cluster: localhost - Solana GUI")
+                        text: qsTr("Connected: localhost - Solana GUI")
                         color: "white"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        MouseArea {
-                            anchors.fill: parent
-                            acceptedButtons: Qt.LeftButton | Qt.RightButton
-                            onClicked: {
-                                clusterPopup.open();
-                            }
-                            Popup {
-                                id: clusterPopup
-                                anchors.centerIn: Overlay.overlay
-                                width: 500
-                                height: 150
-                                modal: true
-                                focus: true
-                                closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                                background: Rectangle {
-                                    implicitWidth: 200
-                                    implicitHeight: 200
-                                    color: menuBar.color
-                                    border.width: 2
-                                    border.color: Qt.lighter(color)
-                                }
-                                padding: 10
-                                ColumnLayout {
-                                    spacing: 2
-                                    Text {
-                                        text: qsTr("Choose network")
-                                        color: "white"
-                                    }
-                                }
-                            }
-                        }
                     }
+
                     Rectangle {
                         id: windowMenu
                         width: 120
@@ -240,6 +211,15 @@ QtObject {
                     width: parent.width
                     height: 25
                     color: "#3C3F41"
+                    Row {
+                        anchors.fill: parent
+                        SGCombo {
+                            width: 120
+                            height: parent.height - 3
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                        }
+                    }
                 }
                 SGHr {
                     color: "black"

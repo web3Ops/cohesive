@@ -41,9 +41,11 @@ qt_add_qml_module(solana_gui
         res/ui/component/SGHr.qml
         res/ui/component/SGCard.qml
         res/ui/component/SGMenuBarItem.qml
+        res/ui/component/SGCombo.qml
         res/ui/section/SGExplorer.qml
         res/ui/section/SGWorkspace.qml
         res/ui/section/SGDocArea.qml
+        res/ui/popup/ClusterPopup.qml
         ${SG_SOLX_FILE}
 
         RESOURCES
