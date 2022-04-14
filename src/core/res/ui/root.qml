@@ -1,12 +1,11 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-
 import "component"
 import "window"
 import "section"
-
 import module.help
+
 
 QtObject {
     id: root
@@ -37,20 +36,20 @@ QtObject {
                     id: menuBar
                     width: parent.width
                     height: 25
-                    color: "#2d2d2d"
+                    color: "#3C3F41"
                     MouseArea {
                         anchors.fill: parent
                         onPressed: {
-                            root.mainWindow.preX = mouseX
-                            root.mainWindow.preY = mouseY
+                            root.mainWindow.preX = mouseX;
+                            root.mainWindow.preY = mouseY;
                         }
                         onMouseXChanged: {
-                            var dx = mouseX - root.mainWindow.preX
-                            root.mainWindow.setX(root.mainWindow.x + dx)
+                            var dx = mouseX - root.mainWindow.preX;
+                            root.mainWindow.setX(root.mainWindow.x + dx);
                         }
                         onMouseYChanged: {
-                            var dy = mouseY - root.mainWindow.preY
-                            root.mainWindow.setY(root.mainWindow.y + dy)
+                            var dy = mouseY - root.mainWindow.preY;
+                            root.mainWindow.setY(root.mainWindow.y + dy);
                         }
                     }
                     Rectangle {
@@ -61,135 +60,64 @@ QtObject {
                         color: parent.color
                         Row {
                             anchors.fill: parent
-                            spacing: 13
-                            SGMenuLabel {
-                                id: idLabelFile
+                            SGMenuBarItem {
                                 text: qsTr("File")
-                                onClicked: {
-                                    idMenuFile.open()
-                                }
-                                SGMenu {
-                                    id: idMenuFile
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelEdit
+                            SGMenuBarItem {
                                 text: qsTr("Edit")
-                                onClicked: {
-                                    idMenuEdit.open()
-                                }
-                                SGMenu {
-                                    id: idMenuEdit
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelView
+                            SGMenuBarItem {
                                 text: qsTr("View")
-                                onClicked: {
-                                    idMenuView.open()
-                                }
-                                SGMenu {
-                                    id: idMenuView
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelNavigate
+                            SGMenuBarItem {
                                 text: qsTr("Navigate")
-                                onClicked: {
-                                    idMenuNavigate.open()
-                                }
-                                SGMenu {
-                                    id: idMenuNavigate
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelBuild
+                            SGMenuBarItem {
                                 text: qsTr("Build")
-                                onClicked: {
-                                    idMenuBuild.open()
-                                }
-                                SGMenu {
-                                    id: idMenuBuild
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelRun
+                            SGMenuBarItem {
                                 text: qsTr("Run")
-                                onClicked: {
-                                    idMenuRun.open()
-                                }
-                                SGMenu {
-                                    id: idMenuRun
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelTools
+                            SGMenuBarItem {
                                 text: qsTr("Tools")
-                                onClicked: {
-                                    idMenuTools.open()
-                                }
-                                SGMenu {
-                                    id: idMenuTools
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelWallet
+                            SGMenuBarItem {
                                 text: qsTr("Wallet")
-                                onClicked: {
-                                    idMenuWallet.open()
+                                SGMenuItem {
+                                    id: idConfigWallet
+                                    text: qsTr("Configure")
                                 }
-                                SGMenu {
-                                    id: idMenuWallet
-                                    SGMenuItem {
-                                        id: idConfigWallet
-                                        text: qsTr("Configure")
-                                    }
-                                    SGMenuItem {
-                                        id: idCreateWallet
-                                        text: qsTr("Create")
-                                    }
-                                    SGMenuItem {
-                                        id: idViewWallet
-                                        text: qsTr("View")
-                                    }
-                                    SGMenuItem {
-                                        id: idRestoreWallet
-                                        text: qsTr("Restore")
-                                    }
-                                    SGMenuItem {
-                                        id: idVerifyWallet
-                                        text: qsTr("Verify")
-                                    }
+                                SGMenuItem {
+                                    id: idCreateWallet
+                                    text: qsTr("Create")
+                                }
+                                SGMenuItem {
+                                    id: idViewWallet
+                                    text: qsTr("View")
+                                }
+                                SGMenuItem {
+                                    id: idRestoreWallet
+                                    text: qsTr("Restore")
+                                }
+                                SGMenuItem {
+                                    id: idVerifyWallet
+                                    text: qsTr("Verify")
                                 }
                             }
-                            SGMenuLabel {
-                                id: idLabelWindow
+                            SGMenuBarItem {
                                 text: qsTr("Window")
-                                onClicked: {
-                                    idMenuWindow.open()
-                                }
-
-                                SGMenu {
-                                    id: idMenuWindow
-                                }
                             }
-                            SGMenuLabel {
-                                id: idLabelHelp
-                                text: qsTr("Help")
-                                onClicked: {
-                                    idMenuHelp.open()
-                                }
-                                SGMenu {
-                                    id: idMenuHelp
-                                    SGMenuItem {
-                                        id: idCFU
-                                        text: qsTr("Check for Updates")
-                                    }
+                            SGMenuBarItem {
 
-                                    SGMenuItem {
-                                        id: idAbout
-                                        text: qsTr("About")
-                                    }
+                                text: qsTr("Help")
+                                SGMenuItem {
+                                    id: idCFU
+                                    text: qsTr("Check for Updates")
+                                }
+
+                                SGMenuItem {
+                                    id: idAbout
+                                    text: qsTr("About")
                                 }
                             }
                         }
@@ -205,7 +133,7 @@ QtObject {
                             anchors.fill: parent
                             acceptedButtons: Qt.LeftButton | Qt.RightButton
                             onClicked: {
-                                clusterPopup.open()
+                                clusterPopup.open();
                             }
                             Popup {
                                 id: clusterPopup
@@ -306,11 +234,12 @@ QtObject {
                         }
                     }
                 }
-                SGHr {}
+                SGHr {
+                }
                 Rectangle {
                     width: parent.width
                     height: 25
-                    color: "#2d2d2d"
+                    color: "#3C3F41"
                 }
                 SGHr {
                     color: "black"
@@ -320,7 +249,7 @@ QtObject {
             Rectangle {
                 width: 20
                 height: parent.height - 52
-                color: "#2d2d2d"
+                color: "#3C3F41"
                 anchors.right: parent.right
                 anchors.top: topBar.bottom
             }
@@ -328,7 +257,7 @@ QtObject {
             Rectangle {
                 width: 20
                 height: parent.height - 52
-                color: "#2d2d2d"
+                color: "#3C3F41"
                 anchors.left: parent.left
                 anchors.top: topBar.bottom
             }
@@ -336,7 +265,7 @@ QtObject {
             Rectangle {
                 width: parent.width
                 height: 41
-                color: "#2d2d2d"
+                color: "#3C3F41"
                 anchors.bottom: parent.bottom
                 Column {
                     width: parent.width
@@ -345,7 +274,7 @@ QtObject {
                         id: idBToolBar
                         width: parent.width
                         height: 20
-                        color: "#2d2d2d"
+                        color: "#3C3F41"
                         property variant bToolArray: ["TODO", "Debug", "Messages", "Terminal"]
                         Row {
                             width: parent.width
@@ -370,11 +299,12 @@ QtObject {
                             }
                         }
                     }
-                    SGHr {}
+                    SGHr {
+                    }
                     Rectangle {
                         width: parent.width
                         height: 20
-                        color: "#2d2d2d"
+                        color: "#3C3F41"
                     }
                 }
             }
@@ -389,11 +319,11 @@ QtObject {
                 cursorShape: Qt.SizeVerCursor
                 onPressed: root.mainWindow.preY = mouseY
                 onMouseYChanged: {
-                    var dy = mouseY - root.mainWindow.preY
-                    var dNext = root.mainWindow.height - dy
+                    var dy = mouseY - root.mainWindow.preY;
+                    var dNext = root.mainWindow.height - dy;
                     if (dNext >= 25) {
-                        root.mainWindow.setY(root.mainWindow.y + dy)
-                        root.mainWindow.setHeight(dNext)
+                        root.mainWindow.setY(root.mainWindow.y + dy);
+                        root.mainWindow.setHeight(dNext);
                     }
                 }
             }
@@ -408,10 +338,10 @@ QtObject {
                 cursorShape: Qt.SizeHorCursor
                 onPressed: root.mainWindow.preX = mouseX
                 onMouseXChanged: {
-                    var dx = mouseX - root.mainWindow.preX
-                    var dNext = parent.width + dx
+                    var dx = mouseX - root.mainWindow.preX;
+                    var dNext = parent.width + dx;
                     if (dNext >= 160) {
-                        root.mainWindow.setWidth(dNext)
+                        root.mainWindow.setWidth(dNext);
                     }
                 }
             }
@@ -426,10 +356,10 @@ QtObject {
                 cursorShape: Qt.SizeVerCursor
                 onPressed: root.mainWindow.preY = mouseY
                 onMouseYChanged: {
-                    var dy = mouseY - root.mainWindow.preY
-                    var dNext = root.mainWindow.height + dy
+                    var dy = mouseY - root.mainWindow.preY;
+                    var dNext = root.mainWindow.height + dy;
                     if (dNext >= 25) {
-                        root.mainWindow.setHeight(dNext)
+                        root.mainWindow.setHeight(dNext);
                     }
                 }
             }
@@ -444,11 +374,11 @@ QtObject {
                 cursorShape: Qt.SizeHorCursor
                 onPressed: root.mainWindow.preX = mouseX
                 onMouseXChanged: {
-                    var dx = mouseX - root.mainWindow.preX
-                    var dNext = parent.width - dx
+                    var dx = mouseX - root.mainWindow.preX;
+                    var dNext = parent.width - dx;
                     if (dNext >= 160) {
-                        root.mainWindow.setX(root.mainWindow.x + dx)
-                        root.mainWindow.setWidth(dNext)
+                        root.mainWindow.setX(root.mainWindow.x + dx);
+                        root.mainWindow.setWidth(dNext);
                     }
                 }
             }
