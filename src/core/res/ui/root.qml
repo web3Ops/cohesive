@@ -29,13 +29,13 @@ QtObject {
             Column {
                 id: topBar
                 width: parent.width
-                height: 52
+                height: 56
                 anchors.top: parent.top
 
                 Rectangle {
                     id: menuBar
                     width: parent.width
-                    height: 25
+                    height: 27
                     color: "#3C3F41"
                     MouseArea {
                         anchors.fill: parent
@@ -209,13 +209,13 @@ QtObject {
                 }
                 Rectangle {
                     width: parent.width
-                    height: 25
+                    height: 27
                     color: "#3C3F41"
                     Row {
                         anchors.fill: parent
                         SGCombo {
                             width: 120
-                            height: parent.height - 3
+                            height: parent.height - 4
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                         }
@@ -228,7 +228,7 @@ QtObject {
 
             Rectangle {
                 width: 20
-                height: parent.height - 52
+                height: parent.height - 56
                 color: "#3C3F41"
                 anchors.right: parent.right
                 anchors.top: topBar.bottom
@@ -236,7 +236,7 @@ QtObject {
 
             Rectangle {
                 width: 20
-                height: parent.height - 52
+                height: parent.height - 56
                 color: "#3C3F41"
                 anchors.left: parent.left
                 anchors.top: topBar.bottom

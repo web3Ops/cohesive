@@ -9,7 +9,7 @@ Rectangle {
     Column {
         width: root.width
         height: root.height
-        topPadding: 52
+        topPadding: 56
         leftPadding: 20
         rightPadding: 20
         spacing: 10
