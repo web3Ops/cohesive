@@ -1,6 +1,5 @@
 import QtQuick
 
-
 Rectangle {
     implicitWidth: 200
     implicitHeight: 20

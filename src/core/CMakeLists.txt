@@ -42,15 +42,19 @@ qt_add_qml_module(solana_gui
         res/ui/component/SGCard.qml
         res/ui/component/SGMenuBarItem.qml
         res/ui/component/SGCombo.qml
+        res/ui/component/SGItemDelegate.qml
+        res/ui/component/SGTool.qml
         res/ui/section/SGExplorer.qml
         res/ui/section/SGWorkspace.qml
         res/ui/section/SGDocArea.qml
-        res/ui/popup/ClusterPopup.qml
+        res/ui/popup/SGClusterPopup.qml
         ${SG_SOLX_FILE}
 
         RESOURCES
         res/img/png/sg-splash.png
-        res/img/svg/winclose.svg
-        res/img/svg/winminimize.svg
-        res/img/svg/winresize.svg
+        res/img/svg/closeActive_dark.svg
+        res/img/svg/minimize_dark.svg
+        res/img/svg/maximize_dark.svg
+        res/img/svg/switchView_dark.svg
+        res/img/svg/toolWindowFind_dark.svg
         )

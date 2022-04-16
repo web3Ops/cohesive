@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 
-
 MenuItem {
     id: idMenuItem
     text: qsTr("Solana GUI")
@@ -9,7 +8,7 @@ MenuItem {
         text: idMenuItem.text
         font: idMenuItem.font
         opacity: enabled ? 1.0 : 0.3
-        color: idMenuItem.down ? "#4B6EAF" : "white"
+        color: "#BBB"
         elide: Text.ElideRight
         anchors.leftMargin: 10
     }
@@ -17,6 +16,6 @@ MenuItem {
         width: parent.width
         height: parent.height
         opacity: enabled ? 1 : 0.3
-        color: idMenuItem.hovered ? "#43698D" : "#3C3F41"
+        color: idMenuItem.hovered ? "#4B6EAF" : "#3C3F41"
     }
 }

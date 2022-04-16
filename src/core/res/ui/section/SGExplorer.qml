@@ -12,6 +12,7 @@ Rectangle {
         topPadding: 56
         leftPadding: 20
         rightPadding: 20
+        bottomPadding: 41
         spacing: 10
         Rectangle {
             id: idStakingSec
@@ -57,7 +58,7 @@ Rectangle {
 
         Rectangle {
             width: parent.width - 50
-            height: parent.height / 3
+            height: (parent.height / 3) - 5
             radius: 8
             color: "#313335"
             border.color: Qt.lighter(color)

@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 ComboBox {
     id: root
@@ -17,14 +18,14 @@ ComboBox {
     contentItem: Text {
         leftPadding: 0
         rightPadding: root.indicator.width + root.spacing
-
         text: root.displayText
         font: root.font
-        color: "white"
+        color: "#BBB"
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
     }
 
+    // qmllint disable deferred-property-id
     indicator: Canvas {
         id: canvas
         x: root.width - width - root.rightPadding
@@ -34,9 +35,10 @@ ComboBox {
         contextType: "2d"
 
         Connections {
+
             target: root
             function onPressedChanged() {
-                canvas.requestPaint();
+                canvas.requestPaint(); // qmllint disable deferred-property-id
             }
         }
 
@@ -46,9 +48,16 @@ ComboBox {
             context.lineTo(width, 0);
             context.lineTo(width / 2, height);
             context.closePath();
-            context.fillStyle = "#515151";
+            context.fillStyle = "#BBB";
             context.fill();
         }
+    }
+
+    delegate: SGItemDelegate {
+        text: modelData
+        width: parent.width
+        required property int index
+        required property string modelData
     }
 
     popup: Popup {
@@ -62,7 +71,6 @@ ComboBox {
             implicitHeight: contentHeight
             model: root.popup.visible ? root.delegateModel : null
             currentIndex: root.highlightedIndex
-
             ScrollIndicator.vertical: ScrollIndicator {
             }
         }

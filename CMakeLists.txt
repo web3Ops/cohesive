@@ -8,18 +8,18 @@ set(solana_gui_VERSION
         "${solana_gui_VERSION_MAJOR}.${solana_gui_VERSION_MINOR}.${solana_gui_VERSION_PATCH}")
 
 set(CMAKE_CXX_STANDARD 17)
-
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-include(option)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_PREFIX_PATH $ENV{QTDIR})
-set(CMAKE_AUTOMOC  ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+find_package(Qt6 COMPONENTS Core Gui Quick Qml Test REQUIRED)
+
+qt_standard_project_setup()
+
+include(option)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-find_package(Qt6 6.2 COMPONENTS Core Gui Quick Qml Test REQUIRED)
 
 enable_testing(${SG_ENABLE_TESTING})
 

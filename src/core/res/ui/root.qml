@@ -23,6 +23,7 @@ QtObject {
             height: parent.height
 
             SGDocArea {
+                id: idDocArea
                 anchors.fill: parent
             }
 
@@ -127,7 +128,7 @@ QtObject {
                     Text {
                         id: cluster
                         text: qsTr("Connected: localhost - Solana GUI")
-                        color: "white"
+                        color: "#777777"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
@@ -144,9 +145,9 @@ QtObject {
                                 id: winminimize
                                 width: 40
                                 height: parent.height
-                                color: !winminimizearea.hovered ? windowMenu.color : "#737373"
+                                color: !winminimizearea.hovered ? windowMenu.color : "#515151"
                                 Image {
-                                    source: "../img/svg/winminimize.svg"
+                                    source: "../img/svg/minimize_dark.svg"
                                     anchors.verticalCenter: parent.verticalCenter
                                     anchors.horizontalCenter: parent.horizontalCenter
                                 }
@@ -165,9 +166,9 @@ QtObject {
                                 id: winresize
                                 width: 40
                                 height: parent.height
-                                color: !winresizearea.hovered ? windowMenu.color : "#737373"
+                                color: !winresizearea.hovered ? windowMenu.color : "#515151"
                                 Image {
-                                    source: "../img/svg/winresize.svg"
+                                    source: "../img/svg/maximize_dark.svg"
                                     anchors.verticalCenter: parent.verticalCenter
                                     anchors.horizontalCenter: parent.horizontalCenter
                                 }
@@ -187,7 +188,7 @@ QtObject {
                                 height: parent.height
                                 color: !winclosearea.hovered ? windowMenu.color : "red"
                                 Image {
-                                    source: "../img/svg/winclose.svg"
+                                    source: "../img/svg/closeActive_dark.svg"
                                     anchors.verticalCenter: parent.verticalCenter
                                     anchors.horizontalCenter: parent.horizontalCenter
                                 }
@@ -212,12 +213,21 @@ QtObject {
                     height: 27
                     color: "#3C3F41"
                     Row {
-                        anchors.fill: parent
+                        width: (parent.width / 2) - 25
+                        height: parent.height
+                        anchors.right: parent.right
+                        spacing: 5
+                        SGTool {
+                            onClicked: idDocArea.state === "explorer" ? idDocArea.state = "workspace" : idDocArea.state = "explorer"
+                            source: "../../img/svg/switchView_dark.svg"
+                        }
                         SGCombo {
-                            width: 120
+                            width: 170
                             height: parent.height - 4
                             anchors.verticalCenter: parent.verticalCenter
-                            anchors.horizontalCenter: parent.horizontalCenter
+                        }
+                        SGTool {
+                            source: "../../img/svg/toolWindowFind_dark.svg"
                         }
                     }
                 }
