@@ -33,7 +33,8 @@ qt_add_qml_module(solana_gui
         VERSION 1.0
         QML_FILES
         res/ui/root.qml
-        res/ui/window/Splash.qml
+        res/ui/window/SGMain.qml
+        res/ui/window/SGSplash.qml
         res/ui/component/SGMenuLabel.qml
         res/ui/component/SGMenuBG.qml
         res/ui/component/SGMenu.qml
@@ -44,10 +45,13 @@ qt_add_qml_module(solana_gui
         res/ui/component/SGCombo.qml
         res/ui/component/SGItemDelegate.qml
         res/ui/component/SGTool.qml
+        res/ui/component/SGSideBar.qml
+        res/ui/component/SGWinAction.qml
         res/ui/section/SGExplorer.qml
         res/ui/section/SGWorkspace.qml
         res/ui/section/SGDocArea.qml
         res/ui/popup/SGClusterPopup.qml
+        res/js/solx.js
         ${SG_SOLX_FILE}
 
         RESOURCES

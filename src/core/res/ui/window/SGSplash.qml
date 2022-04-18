@@ -33,8 +33,8 @@ Window {
         running: true
         repeat: false
         onTriggered: {
-            splash.visible = false
-            splash.timeout()
+            splash.visible = false;
+            splash.timeout();
         }
     }
     //! [timer]
