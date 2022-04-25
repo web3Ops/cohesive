@@ -1,6 +1,6 @@
-## **SOLANA GUI**
+## **Cohesive**
 
-A graphical user interface for interacting with Solana
+A graphical user interface for interacting with Blockchains 
 > **Economics** | **Ergonomics** | **Aesthetics**
 
 #### Features
