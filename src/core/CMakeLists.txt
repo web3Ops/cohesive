@@ -47,6 +47,7 @@ qt_add_qml_module(solana_gui
         res/ui/component/SGTool.qml
         res/ui/component/SGSideBar.qml
         res/ui/component/SGWinAction.qml
+        res/ui/component/SGLabel.qml
         res/ui/section/SGExplorer.qml
         res/ui/section/SGWorkspace.qml
         res/ui/section/SGDocArea.qml

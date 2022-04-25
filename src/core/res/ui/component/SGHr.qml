@@ -1,8 +1,7 @@
 import QtQuick
 
-
 Rectangle {
-    color: "#515151"
+    color: "#2D2F30"
     width: parent.width
     height: 1
 }

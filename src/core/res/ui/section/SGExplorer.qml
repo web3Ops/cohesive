@@ -1,68 +1,78 @@
 import QtQuick
+import QtQuick.Controls
+import "../component"
 
-Rectangle {
+Column {
     id: root
     property int speed: 0
-    anchors.fill: parent
-    color: "#2B2B2B"
+    width: parent.width
+    height: parent.height
+    topPadding: 56
+    rightPadding: 20
+    leftPadding: 20
+    bottomPadding: 41
 
-    Column {
-        width: root.width
-        height: root.height
-        topPadding: 56
-        leftPadding: 20
-        rightPadding: 20
-        bottomPadding: 41
-        spacing: 10
-        Rectangle {
-            id: idStakingSec
-            width: parent.width - 40
-            height: parent.height / 4
-            color: root.color
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+    ScrollView {
+        id: idScrollView
+        width: root.width - 40
+        height: root.height - 97
+        topPadding: 5
+        rightPadding: 27
+        leftPadding: 5
+        focus: true
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+        background: Rectangle {
+            color: "#2B2B2B"
+        }
+        Flickable {
+            width: idScrollView.width
+            height: idScrollView.height
+            contentWidth: idContainer.width
+            contentHeight: idContainer.height + 20
+            Column {
+                id: idContainer
+                width: idScrollView.width - 27
                 spacing: 10
-                Rectangle {
-                    width: (idStakingSec.width / 3) - 10
-                    height: idStakingSec.height - 5
-                    radius: 8
-                    color: "#313335"
-                    border.color: Qt.lighter(color)
+                Item {
+                    id: idStakingSec
+                    width: parent.width
+                    height: root.height / 4
+                    Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: 10
+                        SGCard {
+                            title: "Circulating Supply"
+                            width: (idStakingSec.width / 3) - 10
+                            height: idStakingSec.height - 5
+                        }
+                        SGCard {
+                            title: "Active Stake"
+                            width: (idStakingSec.width / 3) - 10
+                            height: idStakingSec.height - 5
+                        }
+                        SGCard {
+                            title: "Price "
+                            width: (idStakingSec.width / 3) - 10
+                            height: idStakingSec.height - 5
+                        }
+                    }
                 }
-                Rectangle {
-                    width: (idStakingSec.width / 3) - 10
-                    height: idStakingSec.height - 5
-                    radius: 8
-                    color: "#313335"
-                    border.color: Qt.lighter(color)
+                SGCard {
+                    title: "Live Cluster Stats"
+                    width: parent.width - 5
+                    height: root.height / 4
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
-                Rectangle {
-                    width: (idStakingSec.width / 3) - 10
-                    height: idStakingSec.height - 5
-                    radius: 8
-                    color: "#313335"
-                    border.color: Qt.lighter(color)
+
+                SGCard {
+                    title: "Live Transaction Stats"
+                    width: parent.width - 3
+                    height: (root.height / 3) + 10
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
             }
-        }
-
-        Rectangle {
-            width: parent.width - 60
-            height: parent.height / 4
-            radius: 8
-            color: "#313335"
-            border.color: Qt.lighter(color)
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        Rectangle {
-            width: parent.width - 50
-            height: (parent.height / 3) - 5
-            radius: 8
-            color: "#313335"
-            border.color: Qt.lighter(color)
-            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 }
